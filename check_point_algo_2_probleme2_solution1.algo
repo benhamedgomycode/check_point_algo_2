@@ -19,25 +19,25 @@ BEGIN
     END_FOR
     FOR i FROM 0 TO tab1.length-1 DO
         FOR j FROM 0 TO tab2.length-1 DO
-            IF (tab[i] != tab[j]) THEN
-                 tab[i] := tab[i+1]; // translation from right to left
+            IF (tab1[i] != tab2[j]) THEN
+                 tab1[i] := tab1[i+1]; // translation from right to left
                  i := i+1; // update index;
             END_IF
         END_FOR
     END_FOR
     FOR j FROM 0 TO tab2.length-1 DO
         FOR i FROM 0 TO tab1.length-1 DO
-            IF (tab[j] != tab[i]) THEN
-                tab[j] := tab[j+1]; // translation from right to left
+            IF (tab2[j] != tab1[i]) THEN
+                tab2[j] := tab2[j+1]; // translation from right to left
                  j := j+1; // update index;
             END_IF
         END_FOR
     END_FOR
     FOR j FROM 0 TO tab2.length-1 DO
-        sum:=tab[j]+sum 
+        sum:=tab2[j]+sum 
     END_FOR
     FOR i FROM 0 TO tab1.length-1 DO
-        sum:=tab[i]+sum 
+        sum:=tab1[i]+sum 
     END_FOR
     write(sum, ("distinct elements -" ,tab1,tab2));
 END
